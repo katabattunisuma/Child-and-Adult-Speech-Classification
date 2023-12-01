@@ -2,6 +2,9 @@
 import librosa
 import numpy as np
 from pydub import AudioSegment
+import pandas as pd
+import librosa.feature as lrf
+import audio_utils
 
 
 class FeatureExtractor:
@@ -27,3 +30,49 @@ class FeatureExtractor:
         mfccs = librosa.feature.mfcc(y=signal, sr=sr, n_mfcc=n_mfcc)
         mfccs_processed = np.mean(mfccs.T, axis=0)
         return mfccs_processed
+
+    @staticmethod
+    def extract_feature(audio_data):
+        RATE = 44100
+        FRAME = 512
+
+        zcr = lrf.zero_crossing_rate(
+            audio_data, frame_length=FRAME, hop_length=int(FRAME / 2)
+        )
+        feature_zcr = np.mean(zcr)
+
+        mfcc = lrf.mfcc(y=audio_data, sr=RATE, n_mfcc=13)
+        feature_mfcc = np.mean(mfcc, axis=1)
+
+        spectral_centroid = lrf.spectral_centroid(
+            y=audio_data, sr=RATE, hop_length=int(FRAME / 2)
+        )
+        feature_spectral_centroid = np.mean(spectral_centroid)
+
+        spectral_bandwidth = lrf.spectral_bandwidth(
+            y=audio_data, sr=RATE, hop_length=int(FRAME / 2)
+        )
+        feature_spectral_bandwidth = np.mean(spectral_bandwidth)
+
+        spectral_rolloff = lrf.spectral_rolloff(
+            y=audio_data, sr=RATE, hop_length=int(FRAME / 2), roll_percent=0.90
+        )
+        feature_spectral_rolloff = np.mean(spectral_rolloff)
+
+        spectral_flatness = lrf.spectral_flatness(
+            y=audio_data, hop_length=int(FRAME / 2)
+        )
+        feature_spectral_flatness = np.mean(spectral_flatness)
+
+        features = np.append(
+            [
+                feature_zcr,
+                feature_spectral_centroid,
+                feature_spectral_bandwidth,
+                feature_spectral_rolloff,
+                feature_spectral_flatness,
+            ],
+            feature_mfcc,
+        )
+
+        return features
