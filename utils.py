@@ -33,6 +33,7 @@ class DatasetLoader:
         for file in child_files:
             signal, sr = FeatureExtractor.load_audio(file, target_length)
             features = FeatureExtractor.extract_mfcc(signal, sr)
+            # features = FeatureExtractor.extract_feature(audio_data=signal)
             X.append(features)
             y.append(0)  # Label for child
 
@@ -40,6 +41,7 @@ class DatasetLoader:
         for file in adult_files:
             signal, sr = FeatureExtractor.load_audio(file, target_length)
             features = FeatureExtractor.extract_mfcc(signal, sr)
+            # features = FeatureExtractor.extract_feature(audio_data=signal)
             X.append(features)
             y.append(1)  # Label for adult
 

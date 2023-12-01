@@ -23,6 +23,10 @@ rf_model.train(X_train, y_train)
 model_dir = os.path.join(os.getcwd(), "trained_models")
 os.makedirs(model_dir, exist_ok=True)  # Create the directory if it does not exist
 
+"""model_filename = os.path.join(
+    model_dir, "trained_random_forest_personalized.model.joblib"
+)"""
+
 # Save the trained model in the specified directory
 model_filename = os.path.join(model_dir, "trained_random_forest_model.joblib")
 rf_model.save(model_filename)

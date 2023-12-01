@@ -28,7 +28,7 @@ model_dir = os.path.join(
 os.makedirs(model_dir, exist_ok=True)  # Create the directory if it does not exist
 
 # Save the trained model in the specified directory
-model_filename = os.path.join(model_dir, "trained_random_forest_model")
+model_filename = os.path.join(model_dir, "trained_neural_network")
 nn_model.save(model_filename)
 print(f"Model saved as {model_filename}")
 
