@@ -2,6 +2,7 @@ from sklearn.model_selection import train_test_split
 from tensorflow.keras.utils import to_categorical
 from utils import DatasetLoader
 from models.neural_network import NeuralNetworkModel
+import os
 
 # Load dataset
 baby_folder = "/Users/sumakatabattuni/Documents/Child-and-Adult-Speech-Classification/Data/Child Speech"
@@ -20,11 +21,14 @@ X_train_nn, X_test_nn, y_train_nn, y_test_nn = train_test_split(
 nn_model = NeuralNetworkModel(input_shape=(X_train_nn.shape[1],))
 nn_model.train(X_train_nn, y_train_nn, X_test_nn, y_test_nn)
 
-model_dir = os.path.join(os.getcwd(), "trained_models")
+model_dir = os.path.join(
+    "/Users/sumakatabattuni/Documents/Child-and-Adult-Speech-Classification",
+    "trained_models",
+)
 os.makedirs(model_dir, exist_ok=True)  # Create the directory if it does not exist
 
 # Save the trained model in the specified directory
-model_filename = os.path.join(model_dir, "trained_random_forest_model.joblib")
+model_filename = os.path.join(model_dir, "trained_random_forest_model")
 nn_model.save(model_filename)
 print(f"Model saved as {model_filename}")
 

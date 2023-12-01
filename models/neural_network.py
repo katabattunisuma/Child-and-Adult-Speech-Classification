@@ -25,3 +25,6 @@ class NeuralNetworkModel:
 
     def evaluate(self, X_test, y_test):
         return self.model.evaluate(X_test, y_test)
+
+    def save(self, filepath):
+        self.model.save(filepath)
