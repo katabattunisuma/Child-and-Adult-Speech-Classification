@@ -32,6 +32,6 @@ def split_audio(input_path, output_folder, segment_length=2000):
 
 
 # Example usage
-input_folder = "/Users/sumakatabattuni/Documents/Child_Speech_Classification/Data/Overlapped Speech/Overlap "
-output_folder = "/Users/sumakatabattuni/Documents/Child_Speech_Classification/Processed Data/Overlap Speech"
+input_folder = "Data/Overlapped Speech/Overlap "
+output_folder = "Processed Data/Overlap Speech"
 split_audio(input_folder, output_folder, segment_length=2000)

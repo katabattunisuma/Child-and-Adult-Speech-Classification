@@ -5,8 +5,8 @@ from models.random_forest import RandomForestModel
 import os
 
 # Load dataset
-baby_folder = "/Users/sumakatabattuni/Documents/Child-and-Adult-Speech-Classification/Data/Child Speech"
-adult_folder = "/Users/sumakatabattuni/Documents/Child-and-Adult-Speech-Classification/Data/Adult Speech"
+baby_folder = "Data/Child Speech"
+adult_folder = "Data/Adult Speech"
 X, y = DatasetLoader.load_dataset_and_labels(baby_folder, adult_folder)
 
 

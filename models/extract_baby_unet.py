@@ -7,7 +7,6 @@ from tensorflow.keras.layers import (
     Conv2D,
     MaxPooling2D,
     UpSampling2D,
-    concatenate,
 )
 
 
@@ -68,9 +67,9 @@ def unet_model(input_size=(128, 128, 1)):
     return model
 
 
-baby_folder = "/Users/sumakatabattuni/Documents/Child-and-Adult-Speech-Classification/Data/Overlapped Speech/Child Speech"
-adult_folder = "/Users/sumakatabattuni/Documents/Child-and-Adult-Speech-Classification/Data/Overlapped Speech/Adult Speech"
-mixed_folder = "/Users/sumakatabattuni/Documents/Child-and-Adult-Speech-Classification/Data/Overlapped Speech/Overlap "
+baby_folder = "Data/Overlapped Speech/Child Speech"
+adult_folder = "Data/Overlapped Speech/Adult Speech"
+mixed_folder = "Data/Overlapped Speech/Overlap "
 
 file_names = os.listdir(baby_folder)  # Assuming file names are aligned across folders
 
@@ -108,9 +107,7 @@ def predict_baby_voice(mixed_file, model):
     return baby_voice_audio
 
 
-model.save(
-    "/Users/sumakatabattuni/Documents/Child-and-Adult-Speech-Classification/trained_models/overlap_unet_model"
-)
+model.save("trained_models/overlap_unet_model")
 print("saved model")
 
 
@@ -125,12 +122,12 @@ def save_audio(audio, file_path, sr=22050):
 
 # Example usage
 extracted_audio = predict_baby_voice(
-    "/Users/sumakatabattuni/Documents/Child-and-Adult-Speech-Classification/Data/Overlapped Speech/Overlap /audio_3.wav",
+    "Data/Overlapped Speech/Overlap /audio_3.wav",
     model,
 )
 save_audio(
     extracted_audio,
-    "/Users/sumakatabattuni/Documents/Child-and-Adult-Speech-Classification/Data/Extracted Baby Voice/extracted_baby_voice.wav",
+    "Data/Extracted Baby Voice/extracted_baby_voice.wav",
 )
 
 """The current model's performance is not optimal, potentially due to the constraints of a limited training dataset. 

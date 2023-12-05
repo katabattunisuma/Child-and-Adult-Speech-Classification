@@ -12,8 +12,8 @@ model_path = "trained_models/rf_625.joblib"
 # model = joblib.load(model_path)
 model = joblib.load(model_path)
 # Directories
-audio_dir = "/Users/sumakatabattuni/Documents/Child_Speech_Classification/Processed Data/Adult Speech"
-audio_dir2 = "/Users/sumakatabattuni/Documents/Child_Speech_Classification/Processed Data/Child Speech"
+audio_dir = "Processed Data/Adult Speech"
+audio_dir2 = "Processed Data/Child Speech"
 
 all_actual_labels = []
 all_predicted_labels = []

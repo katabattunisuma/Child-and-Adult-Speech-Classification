@@ -5,8 +5,8 @@ from models.neural_network import NeuralNetworkModel
 import os
 
 # Load dataset
-baby_folder = "/Users/sumakatabattuni/Documents/Child-and-Adult-Speech-Classification/Data/Child Speech"
-adult_folder = "/Users/sumakatabattuni/Documents/Child-and-Adult-Speech-Classification/Data/Adult Speech"
+baby_folder = "Data/Child Speech"
+adult_folder = "Data/Adult Speech"
 X, y = DatasetLoader.load_dataset_and_labels(baby_folder, adult_folder)
 
 # Encode labels for neural network
@@ -21,10 +21,7 @@ X_train_nn, X_test_nn, y_train_nn, y_test_nn = train_test_split(
 nn_model = NeuralNetworkModel(input_shape=(X_train_nn.shape[1],))
 nn_model.train(X_train_nn, y_train_nn, X_test_nn, y_test_nn)
 
-model_dir = os.path.join(
-    "/Users/sumakatabattuni/Documents/Child-and-Adult-Speech-Classification",
-    "trained_models",
-)
+model_dir = "trained_models"
 os.makedirs(model_dir, exist_ok=True)  # Create the directory if it does not exist
 
 # Save the trained model in the specified directory

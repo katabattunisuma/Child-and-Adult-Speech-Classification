@@ -43,5 +43,5 @@ def delete_silent_files(folder_path):
 
 
 # Example usage
-folder_path = "/Users/sumakatabattuni/Documents/Child_Speech_Classification/Processed Data/Overlap Speech"
+folder_path = "Processed Data/Overlap Speech"
 delete_silent_files(folder_path)

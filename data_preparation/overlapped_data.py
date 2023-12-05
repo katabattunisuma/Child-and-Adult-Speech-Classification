@@ -3,11 +3,11 @@ from pydub import AudioSegment
 import random
 
 # Directories
-wav_dir = "/Users/sumakatabattuni/Documents/Child-and-Adult-Speech-Classification/Data/Child Speech"
-mp3_dir = "/Users/sumakatabattuni/Documents/Child-and-Adult-Speech-Classification/Data/Adult Speech"
-wav_output_dir = "/Users/sumakatabattuni/Documents/Child-and-Adult-Speech-Classification/Data/Overlapped Speech/Child Speech"
-mp3_output_dir = "/Users/sumakatabattuni/Documents/Child-and-Adult-Speech-Classification/Data/Overlapped Speech/Adult Speech"
-overlapped_output_dir = "/Users/sumakatabattuni/Documents/Child-and-Adult-Speech-Classification/Data/Overlapped Speech/Overlap "
+wav_dir = "Data/Child Speech"
+mp3_dir = "Data/Adult Speech"
+wav_output_dir = "Data/Overlapped Speech/Child Speech"
+mp3_output_dir = "Data/Overlapped Speech/Adult Speech"
+overlapped_output_dir = "Data/Overlapped Speech/Overlap "
 
 # Ensure output directories exist
 if not os.path.exists(wav_output_dir):

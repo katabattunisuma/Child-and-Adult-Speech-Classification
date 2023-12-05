@@ -4,7 +4,6 @@ import numpy as np
 from pydub import AudioSegment
 import pandas as pd
 import librosa.feature as lrf
-import audio_utils
 
 
 class FeatureExtractor:

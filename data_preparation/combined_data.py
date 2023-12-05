@@ -4,10 +4,10 @@ import random
 import numpy as np
 
 # Directories
-wav_dir = "/Users/sumakatabattuni/Documents/Child-and-Adult-Speech-Classification/Data/Child Speech"
-mp3_dir = "/Users/sumakatabattuni/Documents/Child-and-Adult-Speech-Classification/Data/Adult Speech"
-audio_output_dir = "/Users/sumakatabattuni/Documents/Child-and-Adult-Speech-Classification/Data/Combined Speech"
-label_output_dir = "/Users/sumakatabattuni/Documents/Child-and-Adult-Speech-Classification/Data/Combined Speech Labels"
+wav_dir = "Data/Child Speech"
+mp3_dir = "Data/Adult Speech"
+audio_output_dir = "Data/Combined Speech"
+label_output_dir = "Data/Combined Speech Labels"
 
 # Parameters
 total_audios = 10000
